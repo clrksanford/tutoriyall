@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import _ from 'lodash';
 import Autocomplete from 'react-autocomplete';
+import scrapeIt from 'scrape-it';
+import API_LINK from '../constants.js';
 
 class AddLink extends Component {
   constructor() {
@@ -12,7 +14,12 @@ class AddLink extends Component {
       value: ''
     };
 
+    this._handleChange = this._handleChange.bind(this);
     this._handleSubmit = this._handleSubmit.bind(this);
+  }
+
+  _handleChange() {
+    // TODO send API request to scrape site
   }
 
   _handleSubmit() {
@@ -27,14 +34,14 @@ class AddLink extends Component {
     description = description.value;
 
     options['title'] = title;
-    options['link'] = link;
+    options['url'] = link;
     options['description'] = description;
     options['tags'] = selectedTags;
 
     console.log(options);
+    let api_link = API_LINK + '/links' + '/clrksanford';
 
-    // TODO: implement axios once API is running
-    // axios.post(link, options).then(response => console.log(respons));
+    axios.post(api_link, options).then(response => console.log(response));
   }
 
   render() {
@@ -51,7 +58,9 @@ class AddLink extends Component {
 
         <div>
           <label htmlFor="link">Link</label>
-          <input type="text" name="link" id="link" ref="link"/>
+          <input type="text" name="link" id="link" ref="link"
+            onChange={this._handleChange}
+          />
         </div>
 
         <div>

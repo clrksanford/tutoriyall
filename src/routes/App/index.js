@@ -7,6 +7,9 @@ import Paper from 'material-ui/Paper';
 import ResourceList from './ResourceList';
 import FontIcon from 'material-ui/FontIcon';
 import resources from '../../seeds/resources.json';
+import axios from 'axios';
+
+import API_LINK from '../../constants.js';
 
 const style = {
   height: 'auto',
@@ -18,6 +21,11 @@ const style = {
 };
 
 class App extends Component {
+  componentDidMount() {
+    // TODO: get user ID and retrieve all their tutorials
+    axios.get(API_LINK).then(response => console.log(response));
+  }
+
   render() {
     return (
       <MuiThemeProvider>

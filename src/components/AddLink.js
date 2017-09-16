@@ -23,6 +23,7 @@ class AddLink extends Component {
         'ReactJS',
       ],
       autoCompleteList: [],
+      selected: [],
       value: ''
     };
 
@@ -95,8 +96,19 @@ class AddLink extends Component {
             shouldItemRender={(item, value) => item.label.toLowerCase().indexOf(value.toLowerCase()) > -1}
             value={this.state.value}
             onChange={(e) => this.setState({value: e.target.value})}
-            onSelect={(val) => this.setState({value: val})}
+            onSelect={(val) => {
+              let {selected} = this.state;
+
+              selected.push(val);
+
+              this.setState({value: ''})
+            }}
           />
+          <ul id="tag_list">
+            {_.map(this.state.selected, (tag) => {
+              return <li>{tag}</li>
+            })}
+          </ul>
         </div>
 
         <div>

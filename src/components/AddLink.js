@@ -34,13 +34,14 @@ class AddLink extends Component {
     description = description.value;
 
     options['title'] = title;
-    options['link'] = link;
+    options['url'] = link;
     options['description'] = description;
     options['tags'] = selectedTags;
 
     console.log(options);
+    let api_link = API_LINK + '/links' + '/clrksanford';
 
-    axios.post(API_LINK, options).then(response => console.log(response));
+    axios.post(api_link, options).then(response => console.log(response));
   }
 
   render() {

@@ -5,7 +5,7 @@ import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 
 // Components
-import App from './App';
+import App from './routes/App/index.js';
 import AddLink from './components/AddLink';
 import CreateProfile from './components/CreateProfile';
 import Login from './components/Login';

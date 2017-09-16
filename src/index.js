@@ -11,7 +11,7 @@ import Login from './components/Login';
 import Profile from './components/Profile';
 import GithubCallback from './components/GithubCallback.js'
 import PrivateRoute from './components/PrivateRoute'
-import ContextWrapper from './components/ContextWrapper';
+import ContextWrapper from './ContextWrapper';
 
 render(
   <BrowserRouter>
@@ -20,7 +20,7 @@ render(
       <Route path='/login' component={Login}/>
       <Route path='/github_callback' component={GithubCallback}/>
       <PrivateRoute path='/profile' component={Profile}/>
-      <Route path='/create' component={CreateProfile}/>
+      <PrivateRoute path='/create' component={CreateProfile}/>
     </ContextWrapper>
   </BrowserRouter>,
   document.getElementById('root')

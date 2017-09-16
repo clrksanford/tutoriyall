@@ -11,14 +11,17 @@ class Login extends Component {
 
   componentWillMount(){
     var code = window.location.search.substring(1).split('=')[1]
-    // var senddata = {code:code}
-    // axios.get('https://localhost:4000/getuserfromgithub', senddata)
-    //   .then(function (data) {
-    //     console.log(data)
-    //     this.context.is_authenticated()
-    //     Redirect
-    //   })
-    this.context.is_authenticated()
+    var senddata = {code:code}
+    if(true){
+      axios.get('https://localhost:4000/login', senddata)
+        .then(function (data) {
+          console.log(data)
+          this.context.is_authenticated()
+          this.context.set_userinfo(data)
+        })
+    } else {
+      this.context.is_authenticated()
+    }
   }
 
   render() {

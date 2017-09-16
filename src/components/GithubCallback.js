@@ -12,7 +12,7 @@ class Login extends Component {
   componentWillMount(){
     var code = window.location.search.substring(1).split('=')[1]
     console.log(code)
-    if(true){
+    if(false){
       axios.get('http://localhost:4000/login', {code:code})
         .then(function (data) {
           this.context.set_userinfo(data)

@@ -5,7 +5,6 @@ import registerServiceWorker from './registerServiceWorker';
 
 // Components
 import App from './App';
-import AddLink from './components/AddLink';
 
 ReactDOM.render(
   <App />,

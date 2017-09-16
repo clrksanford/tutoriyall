@@ -5,21 +5,23 @@ import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 
 // Components
-import App from './routes/App/index.js';
-import AddLink from './components/AddLink';
+import App from './App';
 import CreateProfile from './components/CreateProfile';
 import Login from './components/Login';
 import Profile from './components/Profile';
+import GithubCallback from './components/GithubCallback.js'
+import PrivateRoute from './components/PrivateRoute'
+import ContextWrapper from './components/ContextWrapper';
 
 render(
   <BrowserRouter>
-    <div>
+    <ContextWrapper>
       <Route exact path='/' component={App}/>
       <Route path='/login' component={Login}/>
-      <Route path='/profile' component={Profile}/>
+      <Route path='/github_callback' component={GithubCallback}/>
+      <PrivateRoute path='/profile' component={Profile}/>
       <Route path='/create' component={CreateProfile}/>
-      <Route path='/add_link' component={AddLink}/>
-    </div>
+    </ContextWrapper>
   </BrowserRouter>,
   document.getElementById('root')
 );

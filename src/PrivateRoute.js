@@ -3,12 +3,11 @@ import { Route, Redirect } from 'react-router-dom';
 
 const PrivateRoute = class extends React.Component {
   static contextTypes = {
-    authenticated: React.PropTypes.bool,
+    authenticated: React.PropTypes.bool.isRequired,
   };
 
   render () {
     const { component: Component, ...rest } = this.props;
-
     return (
       <Route {...rest} render={props => (
         this.context.authenticated

@@ -11,13 +11,12 @@ class Login extends Component {
 
   componentWillMount(){
     var code = window.location.search.substring(1).split('=')[1]
-    var senddata = {code:code}
+    console.log(code)
     if(true){
-      axios.get('https://localhost:4000/login', senddata)
+      axios.get('http://localhost:4000/login', {code:code})
         .then(function (data) {
-          console.log(data)
-          this.context.is_authenticated()
           this.context.set_userinfo(data)
+          this.context.is_authenticated()
         })
     } else {
       this.context.is_authenticated()

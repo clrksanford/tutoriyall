@@ -14,7 +14,9 @@ class ContextWrapper extends Component {
 
   getChildContext(){
     return {
-      is_authenticated: ()=>{this.setState({authenticated:true})},
+      is_authenticated: ()=>{
+        this.setState({authenticated:true})
+      },
       set_userinfo: (username)=>{this.setState({username:username})},
       authenticated: this.state.authenticated
     }

@@ -8,22 +8,7 @@ class AddLink extends Component {
     super();
 
     this.state = {
-      defaultTags: [
-        'AngularJS',
-        'BackboneJS',
-        'Bootstrap',
-        'C#',
-        'C++',
-        'Django',
-        'Java',
-        'JavaScript',
-        'jQuery',
-        'NodeJS',
-        'Python',
-        'ReactJS',
-      ],
-      autoCompleteList: [],
-      selected: [],
+      selectedTags: [],
       value: ''
     };
 
@@ -35,6 +20,7 @@ class AddLink extends Component {
     let options = {};
 
     let {title, link, description} = this.refs;
+    let {selectedTags} = this.state;
 
     title = title.value;
     link = link.value;
@@ -43,6 +29,9 @@ class AddLink extends Component {
     options['title'] = title;
     options['link'] = link;
     options['description'] = description;
+    options['tags'] = selectedTags;
+
+    console.log(options);
 
     // TODO: implement axios once API is running
     // axios.post(link, options).then(response => console.log(respons));
@@ -97,16 +86,16 @@ class AddLink extends Component {
             value={this.state.value}
             onChange={(e) => this.setState({value: e.target.value})}
             onSelect={(val) => {
-              let {selected} = this.state;
+              let {selectedTags} = this.state;
 
-              selected.push(val);
+              selectedTags.push(val);
 
               this.setState({value: ''})
             }}
           />
           <ul id="tag_list">
-            {_.map(this.state.selected, (tag) => {
-              return <li>{tag}</li>
+            {_.map(this.state.selectedTags, (tag) => {
+              return <li key={tag}>{tag}</li>
             })}
           </ul>
         </div>

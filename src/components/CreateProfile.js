@@ -11,9 +11,9 @@ class CreateProfile extends Component {
 
         <label for="experience">Experience</label>
         <select name="experience" id="experience">
-          <option id="0-2">0-2 years</option>
-          <option id="3-5">3-5 years</option>
-          <option id="5+">5+ years</option>
+          <option id="0-2" value="0-2">0-2 years</option>
+          <option id="3-5" value="3-5">3-5 years</option>
+          <option id="5+" value="5+">5+ years</option>
         </select>
       </form>
     );

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
-import Search from './Search';
-import Settings from './Settings';
+import Search from '../SharedComponents/Search';
+import Settings from '../SharedComponents/Settings';
 import Paper from 'material-ui/Paper';
 import ResourceList from './ResourceList';
 import FontIcon from 'material-ui/FontIcon';

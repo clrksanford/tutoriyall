@@ -1,28 +1,42 @@
 import React from 'react';
 import {Card, CardActions, CardHeader, CardTitle, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
+import Chip from 'material-ui/Chip';
 
-const aTagStyle = {
-  color: '#0060B6',
-  textDecoration: 'none',
-  hover: {
-    color: '#00A0C6',
+const styles = {
+  a: {
+    color: '#0060B6',
     textDecoration: 'none',
-    cursor: 'pointer'
+    textAlign: "left",
+    hover: {
+      color: '#00A0C6',
+      textDecoration: 'none',
+      cursor: 'pointer'
+    }
+  },
+  chip: {
+    margin: 4,
   }
 }
 
-export default ({collector, avatarUrl, title, url}) => (
+export default ({username, avatarUrl, title, url, tags}) => (
   <Card>
     <CardHeader
-      title={collector}
-      subtitle="❤️s JS"
+      style={{textAlign: "left"}}
+      title={username}
+      subtitle="JS Lover"
       avatar={avatarUrl}
     />
-    <CardTitle title={<a style={aTagStyle} href={url}>{title}</a>} />
+    <CardTitle title={<a style={styles.a} href={url}>{title}</a>} />
     <CardActions>
-      <FlatButton label="Action1" />
-      <FlatButton label="Action2" />
+      <FlatButton label="Add" />
     </CardActions>
+    {
+      tags.map(t => (
+        <Chip style={styles.chip}>
+          {t}
+        </Chip>
+      ))
+    }
   </Card>
 );

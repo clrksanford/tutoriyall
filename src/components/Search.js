@@ -3,7 +3,7 @@ import axios from 'axios';
 import { API_LINK } from '../constants';
 
 export default class Search extends Component {
-  _handleSubmit(e) {
+  _handleSubmit = (e) => {
     e.preventDefault();
 
     const searchBy = this._search_by.value;
@@ -33,7 +33,7 @@ export default class Search extends Component {
         }
       ]);
     });
-  }
+  };
 
   _ref = (name) => (node) => {
     this[`_${name}`] = node;

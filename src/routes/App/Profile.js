@@ -12,7 +12,6 @@ import axios from 'axios';
 import API_LINK from '../../constants.js';
 
 const style = {
-  height: 'auto',
   width: '90%',
   textAlign: 'center',
   marginLeft: '5%',
@@ -21,23 +20,20 @@ const style = {
   boxShadow: 'none',
 };
 
-class App extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      resources: [],
-    }
+class Profile extends Component {
+  static contextTypes = {
+    set_userinfo: React.PropTypes.func.isRequired,
+    authenticated: React.PropTypes.bool.isRequired,
+    user_id: React.PropTypes.string.isRequired,
+    username: React.PropTypes.string.isRequired,
+    avatar_url: React.PropTypes.string.isRequired
   }
 
   componentDidMount() {
     // TODO: get user ID and retrieve all their tutorials
-    axios.get(API_LINK).then((response) => {
-      console.log(response)
-      let resources = [];
-
-      this.setState(resources);
-    });
+    var user_id = this.props.match.params.user_id || this.context.user_id
+    var api_url = API_LINK + '/user/' + user_id
+    axios.get(api_url).then(response => console.log(response));
   }
 
   render() {
@@ -49,7 +45,7 @@ class App extends Component {
             iconClassNameRight={ <FontIcon className="material-icons">person</FontIcon>}
             style={{float: 'left', backgroundColor: '#23b567'}}
           >
-            <Search style={{ margin: 'auto', padding: 0, }}/>
+            <Search style={{ float: 'left', padding: 0, }}/>
             <Settings/>
           </AppBar>
           <Paper style={style} zDepth={3}>
@@ -61,4 +57,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Profile;

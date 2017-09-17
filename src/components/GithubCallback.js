@@ -7,7 +7,10 @@ class Login extends Component {
 
   static contextTypes = {
     set_userinfo: React.PropTypes.func.isRequired,
-    authenticated: React.PropTypes.bool.isRequired
+    authenticated: React.PropTypes.bool.isRequired,
+    user_id: React.PropTypes.string.isRequired,
+    username: React.PropTypes.string.isRequired,
+    avatar_url: React.PropTypes.string.isRequired
   }
 
   componentWillMount(){
@@ -29,7 +32,7 @@ class Login extends Component {
   render() {
     return (
       this.context.authenticated?<Redirect to={{
-      pathname: '/profile'}}/>:<div>Logging in...</div>
+      pathname: '/profile/'+ this.context.user_id}}/>:<div>Logging in...</div>
     );
   }
 }

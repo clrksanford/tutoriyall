@@ -39,6 +39,8 @@ class App extends Component {
   }
 
   render() {
+    var user_id = this.props.match.params.user_id || this.context.user_id;
+
     return (
       <MuiThemeProvider>
         <div>
@@ -53,7 +55,7 @@ class App extends Component {
 
           <Paper style={style} zDepth={3}>
             <Profile/>
-            <Addlink />
+            <Addlink userId={user_id} />
             <ResourceList resources={resources}/>
           </Paper>
         </div>

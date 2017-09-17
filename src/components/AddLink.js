@@ -42,7 +42,9 @@ class AddLink extends Component {
     console.log(options);
     let api_link = `${API_LINK}/links/${userId}`;
 
-    axios.post(api_link, options).then(response => console.log(response));
+    axios.post(api_link, options).then(response => {
+      this.props.addNewLink(options);
+    });
   }
 
   render() {

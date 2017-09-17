@@ -31,11 +31,35 @@ class App extends Component {
     avatar_url: React.PropTypes.string.isRequired
   }
 
+  constructor() {
+    super();
+
+    this.state = {
+      resources: []
+    }
+
+    this._addNewLink = this._addNewLink.bind(this);
+  }
+
   componentDidMount() {
+    console.log('component mounting');
     // TODO: get user ID and retrieve all their tutorials
     var user_id = this.props.match.params.user_id || this.context.user_id
-    var api_url = API_LINK + '/user/' + user_id
-    axios.get(api_url).then(response => console.log(response));
+    var api_url = API_LINK + '/links/' + user_id
+    axios.get(api_url).then(response => {
+      let resources = response.data;
+
+      this.setState({resources: resources});
+    });
+  }
+
+  _addNewLink(link) {
+    console.log('adding new link', link);
+    let {resources} = this.state;
+
+    resources.push(link);
+
+    this.setState({resources});
   }
 
   render() {
@@ -55,8 +79,8 @@ class App extends Component {
 
           <Paper style={style} zDepth={3}>
             <Profile/>
-            <Addlink userId={user_id} />
-            <ResourceList resources={resources}/>
+            <Addlink userId={user_id} addNewLink={this._addNewLink} />
+            <ResourceList resources={this.state.resources}/>
           </Paper>
         </div>
       </MuiThemeProvider>

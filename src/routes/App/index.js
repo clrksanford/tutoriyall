@@ -6,6 +6,8 @@ import Settings from './Settings';
 import Paper from 'material-ui/Paper';
 import ResourceList from './ResourceList';
 import FontIcon from 'material-ui/FontIcon';
+import Addlink from '../../components/AddLink'
+import Profile from '../../components/Profile'
 import resources from '../../seeds/resources.json';
 import axios from 'axios';
 
@@ -20,7 +22,7 @@ const style = {
   boxShadow: 'none',
 };
 
-class Profile extends Component {
+class App extends Component {
   static contextTypes = {
     set_userinfo: React.PropTypes.func.isRequired,
     authenticated: React.PropTypes.bool.isRequired,
@@ -48,7 +50,10 @@ class Profile extends Component {
             <Search style={{ float: 'left', padding: 0, }}/>
             <Settings/>
           </AppBar>
+
           <Paper style={style} zDepth={3}>
+            <Profile/>
+            <Addlink />
             <ResourceList resources={resources}/>
           </Paper>
         </div>
@@ -57,4 +62,4 @@ class Profile extends Component {
   }
 }
 
-export default Profile;
+export default App;

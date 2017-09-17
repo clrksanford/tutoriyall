@@ -1,5 +1,11 @@
 import React from 'react';
-import { Card, CardActions, CardHeader, CardTitle } from 'material-ui/Card';
+import {
+  Card,
+  CardActions,
+  CardHeader,
+  CardTitle,
+  CardText,
+} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 
 const aTitleStyle = {

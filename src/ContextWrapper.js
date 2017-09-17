@@ -7,17 +7,23 @@ class ContextWrapper extends Component {
   }
 
   static childContextTypes = {
-    is_authenticated: React.PropTypes.func.isRequired,
     set_userinfo: React.PropTypes.func.isRequired,
     authenticated: React.PropTypes.bool.isRequired
   }
 
   getChildContext(){
     return {
-      is_authenticated: ()=>{
+      set_userinfo: (userinfo)=>{
+        console.log("in context manager")
+        console.log(userinfo)
+        window.localStorage.setItem('user_id', userinfo['user_id'])
+        window.localStorage.setItem('username', userinfo['username'])
+        window.localStorage.setItem('avatar_url', userinfo['avatar_url'])
+        this.setState({user_id:userinfo['user_id']})
+        this.setState({username:userinfo['username']})
+        this.setState({avatar_url:userinfo['avatar_url']})
         this.setState({authenticated:true})
       },
-      set_userinfo: (username)=>{this.setState({username:username})},
       authenticated: this.state.authenticated
     }
   }

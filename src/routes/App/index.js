@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
-import Search from './Search';
+import Search from '../../components/Search';
 import Settings from './Settings';
 import Paper from 'material-ui/Paper';
 import ResourceList from './ResourceList';
@@ -43,7 +43,7 @@ class App extends Component {
       <MuiThemeProvider>
         <div>
           <AppBar
-            title="Home"
+            title="Tutoriy'all"
             iconClassNameRight={ <FontIcon className="material-icons">person</FontIcon>}
             style={{float: 'left', backgroundColor: '#23b567'}}
           >

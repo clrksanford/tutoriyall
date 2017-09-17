@@ -5,6 +5,26 @@ import Autocomplete from 'react-autocomplete';
 import scrapeIt from 'scrape-it';
 import API_LINK from '../constants.js';
 
+
+const linkSection = {
+  display: 'inline-block',
+  verticalAlign: 'top',
+  marginLeft: '2%',
+  color: '#23b567',
+  marginBottom: '5%',
+};
+const linkTitle = {
+  marginBottom: '15%',
+};
+const saveButtonStyle = {
+  color: '#ffffff',
+  backgroundColor: '#6f7175',
+  borderRadius: '2px',
+  border: 'none',
+  padding: '40%',
+  cursor: 'pointer',
+};
+
 class AddLink extends Component {
   constructor() {
     super();
@@ -53,26 +73,26 @@ class AddLink extends Component {
         e.preventDefault();
         this._handleSubmit();}}
       >
-        <h3>Add Link</h3>
-        <div>
-          <label htmlFor="title">Title</label>
+        <h3 style={{color: '#23b567'}}>Add a Link</h3>
+        <div style={linkSection}>
+          <label style={linkTitle} htmlFor="title">Title</label><br/>
           <input type="text" name="title" ref="title"/>
         </div>
 
-        <div>
-          <label htmlFor="link">Link</label>
+        <div style={linkSection}>
+          <label style={linkTitle} htmlFor="link">Link</label><br/>
           <input type="text" name="link" id="link" ref="link"
             onChange={this._handleChange}
           />
         </div>
 
-        <div>
-          <label htmlFor="description">Description</label>
+        <div style={linkSection}>
+          <label style={linkTitle} htmlFor="description">Description</label><br/>
           <textarea name="description" id="description" ref="description"></textarea>
         </div>
 
-        <div>
-          <label htmlFor="tags">Tags</label>
+        <div style={linkSection}>
+          <label style={linkTitle} htmlFor="tags">Tags</label><br/>
           <Autocomplete
             getItemValue={(item) => item.label}
             items={[
@@ -112,8 +132,8 @@ class AddLink extends Component {
           </ul>
         </div>
 
-        <div>
-          <input type="submit" value="Save"/>
+        <div style={linkSection}>
+          <input style={saveButtonStyle} type="submit" value="Save"/>
         </div>
       </form>
     )

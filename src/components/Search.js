@@ -39,7 +39,7 @@ class Search extends Component {
         e.preventDefault();
         this._handleSubmit();
       }}>
-        <h4>Search By:</h4>
+        <span>Search By: </span>
         <select ref="search_by">
           <option id="user" value="user">User</option>
           <option id="tag" value="tag">Tag</option>

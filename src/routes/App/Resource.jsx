@@ -12,26 +12,31 @@ const aTitleStyle = {
   }
 }
 const aCardStyle = {
-  marginBottom: '2%',
+  marginBottom: '3%',
   display: 'block',
-  float: 'none',
+  boxShadow: 'none',
 }
 const cardBodyStyle = {
   backgroundColor: '#E9F7EF',
-  padding: '3%',
   textAlign: 'left',
   width: '50%',
-  marginLeft: '3%',
+  height: '150px',
   display: 'inline-block',
+  verticalAlign: 'top',
+  marginLeft: '1%',
+  padding: '1%',
+  overflowY: 'scroll',
+  boxSizing: 'border-box',
 }
 const cardHeaderStyle = {
   backgroundColor: '#E9F7EF',
-  padding: '3%',
+  textAlign: 'center',
   width: '20%',
-  textAlign: 'left',
-  marginRight: '3%',
   display: 'inline-block',
-  height: '100%',
+  verticalAlign: 'top',
+  height: '150px',
+  padding: '3%',
+  boxSizing: 'border-box',
 }
 const aTagStyle = {
   backgroundColor: '#23b567',

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import AutoComplete from 'material-ui/AutoComplete';
 
 export default class Search extends Component {

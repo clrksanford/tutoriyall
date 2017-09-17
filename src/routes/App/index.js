@@ -9,6 +9,7 @@ import FontIcon from 'material-ui/FontIcon';
 import resources from '../../seeds/resources.json';
 
 const style = {
+  height: 'auto',
   width: '90%',
   textAlign: 'center',
   marginLeft: '5%',
@@ -27,7 +28,7 @@ class App extends Component {
             iconClassNameRight={ <FontIcon className="material-icons">person</FontIcon>}
             style={{float: 'left', backgroundColor: '#23b567'}}
           >
-            <Search style={{ float: 'left', padding: 0, }}/>
+            <Search style={{ margin: 'auto', padding: 0, }}/>
             <Settings/>
           </AppBar>
           <Paper style={style} zDepth={3}>

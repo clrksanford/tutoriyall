@@ -13,14 +13,14 @@ import axios from 'axios';
 
 import API_LINK from '../../constants.js';
 
-const style = {
-  width: '90%',
-  textAlign: 'center',
-  marginLeft: '5%',
-  marginTop: '2%',
-  display: 'inline-block',
+const paperStyle = {
+  width: '75%',
+  marginTop: '100px',
+  float: 'right',
   boxShadow: 'none',
 };
+
+
 
 class App extends Component {
   static contextTypes = {
@@ -45,14 +45,13 @@ class App extends Component {
           <AppBar
             title="Home"
             iconClassNameRight={ <FontIcon className="material-icons">person</FontIcon>}
-            style={{float: 'left', backgroundColor: '#23b567'}}
+            style={{position: 'fixed', left: '0px', top: '0px', boxSizing: 'border-box', paddingTop: '1%', backgroundColor: '#23b567'}}
           >
             <Search style={{ float: 'left', padding: 0, }}/>
             <Settings/>
           </AppBar>
-
-          <Paper style={style} zDepth={3}>
-            <Profile/>
+          <Profile/>
+          <Paper style={paperStyle} zDepth={3}>
             <Addlink />
             <ResourceList resources={resources}/>
           </Paper>

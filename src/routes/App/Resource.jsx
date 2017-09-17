@@ -19,13 +19,12 @@ const aCardStyle = {
 const cardBodyStyle = {
   backgroundColor: '#E9F7EF',
   textAlign: 'left',
-  width: '50%',
+  width: '75%',
   height: '150px',
   display: 'inline-block',
   verticalAlign: 'top',
   marginLeft: '1%',
   padding: '1%',
-  overflowY: 'scroll',
   boxSizing: 'border-box',
 }
 const cardHeaderStyle = {

@@ -9,7 +9,7 @@ import AddLink from './components/AddLink';
 import CreateProfile from './components/CreateProfile';
 import Login from './components/Login';
 // import Profile from './components/Profile';
-import Profile from './routes/App/Profile';
+import App from './routes/App/index';
 import GithubCallback from './components/GithubCallback.js'
 import PrivateRoute from './PrivateRoute'
 import ContextWrapper from './ContextWrapper';
@@ -19,8 +19,8 @@ render(
     <ContextWrapper>
       <Route path='/login' component={Login}/>
       <Route path='/github_callback' component={GithubCallback}/>
-      <PrivateRoute exact path='/' component={Profile}/>
-      <PrivateRoute path='/profile/:user_id' component={Profile}/>
+      <PrivateRoute exact path='/' component={App}/>
+      <PrivateRoute path='/profile/:user_id' component={App}/>
       <PrivateRoute path='/create' component={CreateProfile}/>
       <PrivateRoute path='/add_link' component={AddLink}/>
     </ContextWrapper>

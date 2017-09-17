@@ -12,12 +12,12 @@ import axios from 'axios';
 import API_LINK from '../../constants.js';
 
 const style = {
-  height: 'auto',
   width: '90%',
   textAlign: 'center',
   marginLeft: '5%',
   marginTop: '2%',
   display: 'inline-block',
+  boxShadow: 'none',
 };
 
 class App extends Component {
@@ -33,7 +33,7 @@ class App extends Component {
           <AppBar
             title="Home"
             iconClassNameRight={ <FontIcon className="material-icons">person</FontIcon>}
-            style={{float: 'left'}}
+            style={{float: 'left', backgroundColor: '#23b567'}}
           >
             <Search style={{ float: 'left', padding: 0, }}/>
             <Settings/>

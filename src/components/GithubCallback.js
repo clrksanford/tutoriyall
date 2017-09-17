@@ -40,7 +40,7 @@ export default class Login extends Component {
       this.context.authenticated
         ? <Redirect to={{
           // TODO: Change this to `/profile/${this.context.user_id}` when ready
-          pathname: '/'
+          pathname: '/',
         }} />
         : <div>Logging in...</div>
     );

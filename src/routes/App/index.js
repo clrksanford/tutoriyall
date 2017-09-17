@@ -21,9 +21,22 @@ const style = {
 };
 
 class App extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      resources: [],
+    }
+  }
+
   componentDidMount() {
     // TODO: get user ID and retrieve all their tutorials
-    axios.get(API_LINK).then(response => console.log(response));
+    axios.get(API_LINK).then((response) => {
+      console.log(response)
+      let resources = [];
+
+      this.setState(resources);
+    });
   }
 
   render() {

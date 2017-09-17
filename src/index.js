@@ -22,7 +22,7 @@ render(
       <Route path='/github_callback' component={GithubCallback}/>
       <PrivateRoute path='/profile' component={Profile}/>
       <PrivateRoute path='/create' component={CreateProfile}/>
-      <PrivateRoute path='/add_link' component={AddLink}/>
+      <Route path='/add_link' component={AddLink}/>
     </ContextWrapper>
   </BrowserRouter>,
   document.getElementById('root')

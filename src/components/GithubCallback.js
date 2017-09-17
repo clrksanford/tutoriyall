@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
+import API_LINK from '../constants.js';
 
 class Login extends Component {
 
@@ -10,21 +11,22 @@ class Login extends Component {
   }
 
   componentWillMount(){
-    var code = window.location.search.substring(1).split('=')[1]
-    console.log(code)
-    if(false){
-      axios.get('http://localhost:4000/login', {code:code})
-        .then(function (data) {
-          this.context.set_userinfo(data)
+    let code = window.location.search.substring(1).split('=')[1]
+    let api_link = API_LINK + '/login';
+    axios.post(api_link, {code:code})
+      .then((data) => {
+        console.log(data)
+        this.context.is_authenticated()
+      })
+      .catch((error) => {
+        console.log(error);
+        if(error == 'Error: Network Error'){
           this.context.is_authenticated()
-        })
-    } else {
-      this.context.is_authenticated()
-    }
+        }
+      });
   }
 
   render() {
-    console.log(this.context)
     return (
       this.context.authenticated?<Redirect to={{
       pathname: '/profile'}}/>:null

@@ -6,4 +6,4 @@ This page was built as a project at the 2017 Women Who Code Diversity Hack-A-Tho
 
 ## Mockups
 
-[](./public/UI_Designs/PNGs/my_profile_page_my_tutorials.png)
+[](https://lh4.googleusercontent.com/4ntT4rH4uMIPL_fBMfOj2jJcuGowpehbNqIvZ7yIEiPICXEVdBPci83UMHvPc6lmu93f4OZ8kJ6yoy4=w1280-h703-rw)

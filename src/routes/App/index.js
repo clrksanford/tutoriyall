@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
-import Search from './Search';
+import Search from '../../components/Search';
 import Settings from './Settings';
 import Paper from 'material-ui/Paper';
 import ResourceList from './ResourceList';
@@ -31,30 +31,63 @@ class App extends Component {
     avatar_url: React.PropTypes.string.isRequired
   }
 
+  constructor() {
+    super();
+
+    this.state = {
+      resources: []
+    }
+
+    this._addNewLink = this._addNewLink.bind(this);
+    this._renderOthersLinks = this._renderOthersLinks.bind(this);
+  }
+
   componentDidMount() {
+    console.log('component mounting');
     // TODO: get user ID and retrieve all their tutorials
     var user_id = this.props.match.params.user_id || this.context.user_id
-    var api_url = API_LINK + '/user/' + user_id
-    axios.get(api_url).then(response => console.log(response));
+    var api_url = API_LINK + '/links/' + user_id
+    axios.get(api_url).then(response => {
+      let resources = response.data;
+
+      this.setState({resources: resources});
+    });
+  }
+
+  _addNewLink(link) {
+    console.log('adding new link', link);
+    let {resources} = this.state;
+
+    resources.push(link);
+
+    this.setState({resources});
+  }
+
+  _renderOthersLinks(link) {
+    console.log(link);
   }
 
   render() {
+    var user_id = this.props.match.params.user_id || this.context.user_id;
+
     return (
       <MuiThemeProvider>
         <div>
           <AppBar
-            title="Home"
+            title="Tutori Y'all"
             iconClassNameRight={ <FontIcon className="material-icons">person</FontIcon>}
             style={{float: 'left', backgroundColor: '#23b567'}}
           >
-            <Search style={{ float: 'left', padding: 0, }}/>
+            <Search style={{ float: 'left', padding: 0, }} userId={user_id}
+              renderOthersLinks={this._renderOthersLinks}
+            />
             <Settings/>
           </AppBar>
 
           <Paper style={style} zDepth={3}>
             <Profile/>
-            <Addlink />
-            <ResourceList resources={resources}/>
+            <Addlink userId={user_id} addNewLink={this._addNewLink} />
+            <ResourceList resources={this.state.resources}/>
           </Paper>
         </div>
       </MuiThemeProvider>

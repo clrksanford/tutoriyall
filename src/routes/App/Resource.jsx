@@ -47,7 +47,7 @@ const aLinkStyle = {
   color: '#23b567'
 }
 
-export default ({username, avatarUrl, title, url}) => (
+export default ({username, avatarUrl, title, url, description}) => (
   <Card style={aCardStyle}>
     <CardHeader
       style={cardHeaderStyle}
@@ -57,6 +57,7 @@ export default ({username, avatarUrl, title, url}) => (
     />
     <div style={cardBodyStyle}>
       <CardTitle title={<a style={aTitleStyle} href={url}>{title}</a>} />
+      <CardText>{description}</CardText>
       <CardActions>
         <FlatButton label="Action1" style={aTagStyle}/>
         <FlatButton label="Action2" style={aTagStyle}/>

@@ -17,12 +17,12 @@ import ContextWrapper from './ContextWrapper';
 render(
   <BrowserRouter>
     <ContextWrapper>
-      <Route exact path='/' component={App}/>
       <Route path='/login' component={Login}/>
       <Route path='/github_callback' component={GithubCallback}/>
-      <PrivateRoute path='/profile' component={Profile}/>
+      <PrivateRoute exact path='/' component={App}/>
+      <PrivateRoute path='/profile' component={App}/>
       <PrivateRoute path='/create' component={CreateProfile}/>
-      <PrivateRoute path='/add_link' component={AddLink}/>
+      <Route path='/add_link' component={AddLink}/>
     </ContextWrapper>
   </BrowserRouter>,
   document.getElementById('root')

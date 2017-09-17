@@ -43,11 +43,12 @@ class AddLink extends Component {
   }
 
   _handleSubmit() {
-    console.log('submitting');
+    console.log('userId', this.props.userId);
     let options = {};
 
     let {title, link, description} = this.refs;
     let {selectedTags} = this.state;
+    let {userId} = this.props;
 
     title = title.value;
     link = link.value;
@@ -59,9 +60,11 @@ class AddLink extends Component {
     options['tags'] = selectedTags;
 
     console.log(options);
-    let api_link = API_LINK + '/links' + '/clrksanford';
+    let api_link = `${API_LINK}/links/${userId}`;
 
-    axios.post(api_link, options).then(response => console.log(response));
+    axios.post(api_link, options).then(response => {
+      this.props.addNewLink(options);
+    });
   }
 
   render() {

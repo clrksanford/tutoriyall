@@ -1,5 +1,11 @@
 import React from 'react';
-import {Card, CardActions, CardHeader, CardTitle, CardText} from 'material-ui/Card';
+import {
+  Card,
+  CardActions,
+  CardHeader,
+  CardTitle,
+  CardText,
+} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 
 const aTitleStyle = {
@@ -8,14 +14,14 @@ const aTitleStyle = {
   hover: {
     color: '#000000',
     textDecoration: 'none',
-    cursor: 'pointer'
-  }
-}
+    cursor: 'pointer',
+  },
+};
 const aCardStyle = {
   marginBottom: '3%',
   display: 'block',
   boxShadow: 'none',
-}
+};
 const cardBodyStyle = {
   backgroundColor: '#E9F7EF',
   textAlign: 'left',
@@ -26,7 +32,7 @@ const cardBodyStyle = {
   marginLeft: '1%',
   padding: '1%',
   boxSizing: 'border-box',
-}
+};
 const cardHeaderStyle = {
   backgroundColor: '#E9F7EF',
   textAlign: 'center',
@@ -36,17 +42,14 @@ const cardHeaderStyle = {
   height: '150px',
   padding: '3%',
   boxSizing: 'border-box',
-}
+};
 const aTagStyle = {
   backgroundColor: '#23b567',
   color: 'white',
   borderRadius: '5px',
-}
-const aLinkStyle = {
-  color: '#23b567'
-}
+};
 
-export default ({username, avatarUrl, title, url, description}) => (
+export default ({ username, avatarUrl, title, url, description }) => (
   <Card style={aCardStyle}>
     <CardHeader
       style={cardHeaderStyle}
@@ -62,6 +65,5 @@ export default ({username, avatarUrl, title, url, description}) => (
         <FlatButton label="Action2" style={aTagStyle}/>
       </CardActions>
     </div>
-
   </Card>
 );

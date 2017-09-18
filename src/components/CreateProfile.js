@@ -1,31 +1,27 @@
-import React, {Component} from 'react';
-import axios from 'axios';
+import React, { Component } from 'react';
+// import axios from 'axios';
 
-class CreateProfile extends Component {
-  constructor() {
-    super();
+export default class CreateProfile extends Component {
+  _handleSubmit = (e) => {
+    e.preventDefault();
 
-    this._handleSubmit = this._handleSubmit.bind(this);
-  }
+    const options = {
+      experience: this._experience.value,
+      username: this._username.value,
+    };
 
-  _handleSubmit() {
-    let options = {};
-    let experience = this.refs.experience.value;
-    let username = this.refs.username.value;
-
-    options['experience'] = experience;
-    options['username'] = username;
-
+    // eslint-disable-next-line no-console
     console.log(options);
     // axios.post('http://localhost:4000', options).then(response => console.log(response))
+  };
+
+  _ref = (name) => (node) => {
+    this[`_${name}`] = node;
   }
 
   render() {
-    return(
-      <form onSubmit={(e) => {
-        e.preventDefault();
-        this._handleSubmit();
-      }}>
+    return (
+      <form onSubmit={this._handleSubmit}>
         <h3>Create Profile</h3>
 
         <div>
@@ -34,12 +30,12 @@ class CreateProfile extends Component {
 
         <div>
           <label htmlFor="username">Username</label>
-          <input type="text" name="username" id="username" ref="username" />
+          <input type="text" id="username" ref={this._ref('username')} />
         </div>
 
         <div>
           <label htmlFor="experience">Experience</label>
-          <select name="experience" id="experience" ref="experience">
+          <select id="experience" ref={this._ref('experience')}>
             <option id="0-2" value="0-2">0-2 years</option>
             <option id="3-5" value="3-5">3-5 years</option>
             <option id="5+" value="5+">5+ years</option>
@@ -51,5 +47,3 @@ class CreateProfile extends Component {
     );
   }
 }
-
-export default CreateProfile;

@@ -1,4 +1,5 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import propTypes from 'prop-types';
 
 const profileStyle = {
   position: 'fixed',
@@ -14,25 +15,29 @@ const profileStyle = {
   fontFamily: 'Roboto, sans-serif',
   color: '#D1D2D4',
 };
+const avatarStyle = {
+  marginTop: '5%',
+  borderRadius: '50%',
+  width: '150px',
+};
 
-class Profile extends Component {
+export default class Profile extends Component {
   static contextTypes = {
-    set_userinfo: React.PropTypes.func.isRequired,
-    authenticated: React.PropTypes.bool.isRequired,
-    user_id: React.PropTypes.string.isRequired,
-    username: React.PropTypes.string.isRequired,
-    avatar_url: React.PropTypes.string.isRequired
+    username: propTypes.string.isRequired,
+    avatar_url: propTypes.string.isRequired
   }
 
   render() {
-    return(
+    return (
       <div style={profileStyle}>
-        <div>user profile</div>
-        <img src={this.context.avatar_url} style={{marginTop: '5%', borderRadius: '50%',}} width="150px"/>
+        <div>User Profile</div>
+        <img
+          alt="avatar"
+          src={this.context.avatar_url}
+          style={avatarStyle}
+        />
         <h4>{this.context.username}</h4>
       </div>
     );
   }
 }
-
-export default Profile;

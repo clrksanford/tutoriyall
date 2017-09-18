@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { Component } from 'react';
+import propTypes from 'prop-types';
 import { Route, Redirect } from 'react-router-dom';
 
-const PrivateRoute = class extends React.Component {
+export default class PrivateRoute extends Component {
   static contextTypes = {
-    authenticated: React.PropTypes.bool.isRequired,
+    authenticated: propTypes.bool.isRequired,
   };
 
   render () {
     const { component: Component, ...rest } = this.props;
+
     return (
       <Route {...rest} render={props => (
         this.context.authenticated
@@ -16,10 +18,7 @@ const PrivateRoute = class extends React.Component {
             pathname: '/login',
             state: props.location,
           }} />
-        )}
-      />
+      )} />
     );
   }
-};
-
-export default PrivateRoute;
+}
